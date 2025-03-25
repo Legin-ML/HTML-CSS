@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Simple Webpage</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #fafafa;
+            background-color: #262626;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #582371;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        header h1 {
+            margin-bottom: 0.5rem;
+        }
+
+
+        nav {
+            background-color: #2d0a39;
+            padding: 1rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #86419f;
+        }
+
+        /* Main content styles */
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgb(13, 11, 14);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        main section {
+            margin-bottom: 1.5rem;
+        }
+
+        main h2 {
+            color: #dcdddc;
+            border-bottom: 2px solid #811f43;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #582371;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Designed to show the navbar as a list on mobile phones */
+        @media screen and (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            header {
+                padding: 0.5rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Demonstration</h1>
+        <p>A simple, responsive webpage layout</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Home</h2>
+            <p>Websites offer a unique opportunity to connect with a global audience, providing a space for individuals or businesses to showcase their ideas, services, or products. With a well-designed website, one can enhance their brand image, build trust, and engage with visitors in real-time. Furthermore, a website serves as a dynamic and flexible medium, enabling updates, blogs, e-commerce, and social media integration. Whether for personal use or as part of a broader business strategy, having a website is essential in today’s digital world to remain competitive, visible, and responsive to the needs of visitors.</p>        </section>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>Created to showcase basic web design principles, this page uses semantic HTML5 elements and a responsive CSS layout. The design includes a flexible navigation menu and content areas that adjust smoothly across devices.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Feel free to explore the responsive design by resizing your browser window. The layout will dynamically adjust to provide an optimal viewing experience on both desktop and mobile devices.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Demonstration. No rights reserved.</p>
+    </footer>
+</body>
+</html>
