@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dropdown Menu for Mobile</title>
+  <style>
+    body {
+      background-color: #333;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      background-color: #484747;
+    }
+    li {
+      display: inline-block;
+      position: relative;
+    }
+    li a {
+      text-decoration: none;
+      color: white;
+      padding: 10px;
+      display: block;
+    }
+    li a:hover {
+      background-color: #9a9a9a;
+    }
+
+    .dropdown-toggle {
+      display: none;
+    }
+
+    .mobile-toggle {
+      display: none;
+      color: white;
+      background: #484747;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    ul ul {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #484848;
+      padding: 10px 0;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+    }
+    li:hover > ul {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.3s ease, visibility 0s linear 0s;
+    }
+    li > ul > li > a:hover {
+      background-color: #555;
+    }
+    li > a {
+      transition: background-color 0.3s;
+    }
+
+    /* Fallback */
+    @media (max-width: 768px) {
+      li {
+        display: block;
+      }
+      .mobile-toggle {
+        display: inline-block;
+      }
+      li:hover > ul {
+        display: none;
+      }
+      ul ul {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        padding-left: 20px;
+      }
+      .dropdown ul {
+        display: none;
+      }
+      .dropdown-toggle:checked ~ ul {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li class="dropdown">
+      <a href="#">Services</a>
+      <input type="checkbox" id="toggle-services" class="dropdown-toggle" />
+      <label for="toggle-services" class="mobile-toggle">▼</label>
+      <ul>
+        <li><a href="#">Web Design</a></li>
+        <li><a href="#">App Design</a></li>
+        <li><a href="#">Analytics</a></li>
+      </ul>
+    </li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</body>
+</html>

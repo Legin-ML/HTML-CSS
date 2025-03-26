@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed Content</title>
+    <style>
+        .body {
+            font-family: 'Arial', Helvetica, sans-serif;
+            color: rgb(201, 201, 201);
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .tab-label {
+            padding: 10px;
+            background-color: #8d8d8d;
+            cursor: pointer;
+            border: 1px solid #f6f4f4;
+            margin-right: 5px;
+            border-radius: 4px;
+            color: rgb(0, 0, 0);
+            transition: border-radius 0.2s ease;
+        }
+
+        .tab-label:hover {
+            background-color: #707070;
+            border-radius: 10px;
+        }
+
+
+        input[type="radio"] {
+            display: none;
+        }
+
+
+        .tab-content {
+            visibility: hidden; 
+            opacity: 0; 
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            transform: translateY(20px); 
+            transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s linear 0.5s;
+        }
+
+
+        input[type="radio"]:checked + .tab-content {
+            visibility: visible; 
+            opacity: 1; 
+            transform: translateY(0); 
+            transition: opacity 0.5s ease, transform 0.5s ease; 
+        }
+
+        .tab-content h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <label for="tab1" class="tab-label">Home</label>
+        <label for="tab2" class="tab-label">About</label>
+        <label for="tab3" class="tab-label">Contact</label>
+    </div>
+
+    <input type="radio" id="tab1" name="tabs" checked>
+    <div class="tab-content">
+        <h2>Home</h2>
+        <p>Welcome to the homepage.</p>
+    </div>
+
+    <input type="radio" id="tab2" name="tabs">
+    <div class="tab-content">
+        <h2>About</h2>
+        <p>We are a motivated team of specialists.</p>
+    </div>
+
+    <input type="radio" id="tab3" name="tabs">
+    <div class="tab-content">
+        <h2>Contact</h2>
+        <p>Feel free to contact us</p>
+    </div>
+</body>
+</html>
