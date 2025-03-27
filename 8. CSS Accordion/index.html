@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gray & Purple Accordion</title>
+    <style>
+        body {
+            background-color: #4d4d4d;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #323232 0%, #292929 100%);
+        }
+
+        .accordion-container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #f8f7fb;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(128, 103, 188, 0.15);
+            overflow: hidden;
+        }
+
+        .accordion-title {
+            text-align: center;
+            color: #6a4fa3;
+            padding: 20px 0;
+            background-color: #959595;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            background-color: #f8f7fb;
+            color: #6a4fa3;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: #f0ebf7;
+        }
+
+        .accordion-header h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .accordion-toggle {
+            width: 20px;
+            height: 20px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-toggle::before,
+        .accordion-toggle::after {
+            content: '';
+            position: absolute;
+            background-color: #6a4fa3;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .accordion-toggle::before {
+            width: 2px;
+            height: 16px;
+            left: 9px;
+            top: 2px;
+        }
+
+        .accordion-toggle::after {
+            width: 16px;
+            height: 2px;
+            top: 9px;
+            left: 2px;
+        }
+
+        .accordion-input {
+            display: none;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: white;
+            color: #666;
+            padding: 0 20px;
+            opacity: 0;
+        }
+
+        .accordion-input:checked + .accordion-header .accordion-toggle::before {
+            transform: rotate(90deg);
+        }
+
+        .accordion-input:checked + .accordion-header .accordion-toggle::after {
+            transform: rotate(180deg);
+        }
+
+        .accordion-input:checked + .accordion-header {
+            background-color: #f0ebf7;
+        }
+
+        .accordion-input:checked ~ .accordion-content {
+            max-height: 500px;
+            padding: 20px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="accordion-container">
+        <h2 class="accordion-title">FAQ</h2>
+        
+        <div class="accordion-item">
+            <input type="checkbox" id="section1" class="accordion-input">
+            <label for="section1" class="accordion-header">
+                <h3>What is the limit for Free Tier?</h3>
+                <div class="accordion-toggle"></div>
+            </label>
+            <div class="accordion-content">
+                <p>The limit for free tier is 1 million requests, where each request is considered as 10 seconds of runtime.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <input type="checkbox" id="section2" class="accordion-input">
+            <label for="section2" class="accordion-header">
+                <h3>Is there flexible pricing?</h3>
+                <div class="accordion-toggle"></div>
+            </label>
+            <div class="accordion-content">
+                <p>Yes, we also provide a pay-as-you-go pricing model. Contact our pricing specialists for more info.</p>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <input type="checkbox" id="section3" class="accordion-input">
+            <label for="section3" class="accordion-header">
+                <h3>Is this good?</h3>
+                <div class="accordion-toggle"></div>
+            </label>
+            <div class="accordion-content">
+                <p>Yes.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
