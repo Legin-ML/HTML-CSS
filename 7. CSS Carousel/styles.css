@@ -52,13 +52,13 @@ body {
 .slider-nested {
     list-style: none;
     display: flex;
-    width: 400%; /* Total width to accommodate all slides */
+    width: 400%; 
     animation: slide 10s ease-in-out infinite;
     transition: transform 0.5s ease;
 }
   
 .slider-nested li {
-    min-width: 25%; /* Each slide takes 1/4 of the total width */
+    min-width: 25%; 
 }
   
 .slider-nested:hover {
