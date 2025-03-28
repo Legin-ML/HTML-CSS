@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Multi-Page Website Simulator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        .site-navigation {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            display: flex;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            transition: 
+                background-color 0.3s,
+                transform 0.2s;
+        }
+
+        .nav-link:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        /* Page Sections */
+        .page-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .page-section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: 
+                opacity 0.7s ease-in-out,
+                visibility 0.7s,
+                transform 0.7s ease-in-out;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+
+
+        #home {
+         background-color: #3498db;
+        transform: translateX(100%);
+        }
+
+        #about { 
+            background-color: #2ecc71;
+            transform: translateX(100%);
+        }
+
+        #services { 
+            background-color: #e74c3c;
+            transform: translateX(100%);
+        }
+
+        #contact { 
+            background-color: #9b59b6;
+            transform: translateX(100%);
+        }
+
+        /* Page Transitions */
+        .page-section:target {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+
+        .page-section:not(:target) {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(100%);
+        }
+
+
+        #home:target ~ #about { transform: translateX(100%); }
+        #home:target ~ #services { transform: translateX(100%); }
+        #home:target ~ #contact { transform: translateX(100%); }
+
+        #about:target ~ #home { transform: translateX(-100%); }
+        #about:target ~ #services { transform: translateX(100%); }
+        #about:target ~ #contact { transform: translateX(100%); }
+
+        #services:target ~ #home { transform: translateX(-100%); }
+        #services:target ~ #about { transform: translateX(-100%); }
+        #services:target ~ #contact { transform: translateX(100%); }
+
+        #contact:target ~ #home { transform: translateX(-100%); }
+        #contact:target ~ #about { transform: translateX(-100%); }
+        #contact:target ~ #services { transform: translateX(-100%); }
+
+        .page-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .page-section p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        .landing {
+            position: absolute;
+            background-color: #3498db;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 1;
+            visibility: visible;
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .landing h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .landing p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .site-navigation {
+                flex-direction: column;
+            }
+
+            .nav-link {
+                padding: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-navigation">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+
+    <div class="page-container">
+
+        <section id="landing" class="landing">
+            <h1>Welcome to Our Website</h1>
+            <p>Navigate through our pages using the menu below!</p>
+        </section>
+
+        <section id="home" class="page-section">
+            <h1>Welcome to Our Website</h1>
+            <p>Navigate through our pages using the menu below!</p>
+        </section>
+
+        <section id="about" class="page-section">
+            <h1>About Us</h1>
+            <p>We create amazing experiences with pure CSS.</p>
+        </section>
+
+        <section id="services" class="page-section">
+            <h1>Our Services</h1>
+            <p>Innovative web design and development solutions.</p>
+        </section>
+
+        <section id="contact" class="page-section">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our team today!</p>
+        </section>
+    </div>
+</body>
+</html> 
