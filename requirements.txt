@@ -13,10 +13,10 @@ the arrow mark should be hown on the right side of an option mobile view [DONE]
 clicking outside of the popup should close it [DONE]
 
 6.
-Overlay one on top of other  instead of spacing out
+Overlay one on top of other  instead of spacing out [DONE]
 
 7. 
-the switching buttons should be within the image
+the switching buttons should be within the image [DONE]
 
 Common:
 Refactoring code to different files [IN PROGRESS]
