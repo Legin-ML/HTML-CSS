@@ -1,0 +1,21 @@
+2.
+Image as a circle
+
+3.
+Scaling must be based on screen size
+
+4. 
+Submenus under a option
+Content based on if clicked
+the arrow mark should be hown on the right side of an option mobile view
+
+5.
+clicking outside of the popup should close it
+
+6.
+Overlay one on top of other  instead of spacing out
+
+7. 
+the switching buttons should be within the image
+
+8.
