@@ -1,13 +1,13 @@
 2.
-Image as a circle
+Image as a circle [DONE]
 
 3.
-Scaling must be based on screen size
+Scaling must be based on screen size [DONE]
 
 4. 
-Submenus under a option
-Content based on if clicked
-the arrow mark should be hown on the right side of an option mobile view
+Submenus under a option [DONE]
+Content based on if clicked [IN PROGRESS]
+the arrow mark should be hown on the right side of an option mobile view [DONE]
 
 5.
 clicking outside of the popup should close it
