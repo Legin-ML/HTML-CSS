@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Pure CSS Modals</title>
     <style>
-
         body {
             font-family: 'Arial', sans-serif;
             display: flex;
@@ -26,14 +25,12 @@
             transition: all 0.3s ease;
         }
 
-
         .btn:hover {
             background-color: #431543;
             transform: translateY(-3px);
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        /* Common Styles */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -65,6 +62,8 @@
                 transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
                 opacity 0.4s ease-in-out;
             box-shadow: 0 15px 30px rgba(255, 255, 255, 0.407);
+            position: relative;
+            z-index: 1001;
         }
 
         .modal-target-wrapper:target {
@@ -78,6 +77,15 @@
             opacity: 1;
         }
 
+        .modal-target-wrapper:target .overlay-close {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            cursor: default;
+            z-index: 1000;
+        }
 
         .modal-checkbox {
             background-color: rgb(77, 77, 77);
@@ -92,6 +100,8 @@
                 transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
                 opacity 0.4s ease-in-out;
             box-shadow: 0 15px 30px rgba(255, 255, 255, 0.356);
+            position: relative;
+            z-index: 1001;
         }
 
         .modal-checkbox-trigger {
@@ -127,6 +137,16 @@
             opacity: 1;
         }
 
+        .overlay-close-checkbox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1000;
+            cursor: pointer;
+        }
+
         .close-btn {
             background-color: #6b226c;
             color: white;
@@ -152,21 +172,24 @@
     <a href="#open-modal-target" class="btn">Open Target Modal</a>
     
     <div id="open-modal-target" class="modal-target-wrapper modal-overlay">
+        <a href="#" class="overlay-close"></a>
         <div class="modal-target">
             <h2>Target-Based Modal</h2>
-            <p>This modal is controlled using the :target pseudo-class </p>
+            <p>This modal is controlled using the :target pseudo-class</p>
+            <p>Click anywhere outside the modal to close it</p>
             <a href="#" class="close-btn">Close</a>
         </div>
     </div>
-
 
     <label for="modal-checkbox-trigger" class="btn">Open Checkbox Modal</label>
     
     <input type="checkbox" id="modal-checkbox-trigger" class="modal-checkbox-trigger">
     <div class="modal-checkbox-wrapper">
+        <label for="modal-checkbox-trigger" class="overlay-close-checkbox"></label>
         <div class="modal-checkbox">
             <h2>Checkbox-Based Modal</h2>
             <p>This modal is controlled using a hidden checkbox and :checked pseudo-class</p>
+            <p>Click anywhere outside the modal to close it</p>
             <label for="modal-checkbox-trigger" class="close-btn">Close</label>
         </div>
     </div>
