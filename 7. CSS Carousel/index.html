@@ -4,22 +4,216 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Pure CSS Carousel Slider</title>
-    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body, html, ul, li, img, div {
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        width: 80%;
+        margin: 50px auto;
+      }
+      
+      .slider {
+        width: 720px;
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+        outline: 1px solid red;
+      }
+      
+      .slider img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .slider input {
+        display: none;
+      }
+      
+      .slider-controls {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+      }
+      
+      .slider-control {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: rgba(255,255,255,0.5);
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        line-height: 20px;
+        color: #333;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      }
+      
+      .slider-control:hover {
+        background: rgba(255,255,255,0.8);
+        transform: scale(1.1);
+      }
+      
+      #slide1:checked ~ .slider-controls .slider-control[for="slide1"],
+      #slide2:checked ~ .slider-controls .slider-control[for="slide2"],
+      #slide3:checked ~ .slider-controls .slider-control[for="slide3"],
+      #slide4:checked ~ .slider-controls .slider-control[for="slide4"] {
+        background: white;
+        transform: scale(1.2);
+      }
+      
+      .slider-nested {
+        list-style: none;
+        display: flex;
+        width: 400%; 
+        transition: transform 0.5s ease;
+        animation: slide 10s ease-in-out infinite;
+      }
+      
+      .slider-item {
+        min-width: 25%;
+        position: relative;
+      }
+      
+      .slider-nested:hover {
+        animation-play-state: paused;
+      }
+      
+      #slide1:checked ~ .slider-nested { transform: translateX(0); animation: none; }
+      #slide2:checked ~ .slider-nested { transform: translateX(-25%); animation: none; }
+      #slide3:checked ~ .slider-nested { transform: translateX(-50%); animation: none; }
+      #slide4:checked ~ .slider-nested { transform: translateX(-75%); animation: none; }
+      
+      @keyframes slide {
+        0%, 10% {
+            transform: translateX(0);
+        }
+        25%, 40% {
+            transform: translateX(-25%);
+        }
+        50%, 65% {
+            transform: translateX(-50%);
+        }
+        75%, 90% {
+            transform: translateX(-75%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+      }
+      
+      #slide1:checked ~ .slider-nested {
+        animation: slide-from-1 10s ease-in-out infinite;
+      }
+      
+      #slide2:checked ~ .slider-nested {
+        animation: slide-from-2 10s ease-in-out infinite;
+      }
+      
+      #slide3:checked ~ .slider-nested {
+        animation: slide-from-3 10s ease-in-out infinite;
+      }
+      
+      #slide4:checked ~ .slider-nested {
+        animation: slide-from-4 10s ease-in-out infinite;
+      }
+      
+      @keyframes slide-from-1 {
+        0%, 10% {
+            transform: translateX(0);
+        }
+        25%, 40% {
+            transform: translateX(-25%);
+        }
+        50%, 65% {
+            transform: translateX(-50%);
+        }
+        75%, 90% {
+            transform: translateX(-75%);
+        }
+        100% {
+            transform: translateX(0);
+        }
+      }
+      
+      @keyframes slide-from-2 {
+        0%, 10% {
+            transform: translateX(-25%);
+        }
+        25%, 40% {
+            transform: translateX(-50%);
+        }
+        50%, 65% {
+            transform: translateX(-75%);
+        }
+        75%, 90% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-25%);
+        }
+      }
+      
+      @keyframes slide-from-3 {
+        0%, 10% {
+            transform: translateX(-50%);
+        }
+        25%, 40% {
+            transform: translateX(-75%);
+        }
+        50%, 65% {
+            transform: translateX(0);
+        }
+        75%, 90% {
+            transform: translateX(-25%);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+      }
+      
+      @keyframes slide-from-4 {
+        0%, 10% {
+            transform: translateX(-75%);
+        }
+        25%, 40% {
+            transform: translateX(0);
+        }
+        50%, 65% {
+            transform: translateX(-25%);
+        }
+        75%, 90% {
+            transform: translateX(-50%);
+        }
+        100% {
+            transform: translateX(-75%);
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="slider">
-
       <input type="radio" name="slider" id="slide1" checked />
       <input type="radio" name="slider" id="slide2" />
       <input type="radio" name="slider" id="slide3" />
       <input type="radio" name="slider" id="slide4" />
       
-
-      <label for="slide1" class="slider-control">1</label>
-      <label for="slide2" class="slider-control">2</label>
-      <label for="slide3" class="slider-control">3</label>
-      <label for="slide4" class="slider-control">4</label>
-
+      <div class="slider-controls">
+        <label for="slide1" class="slider-control">1</label>
+        <label for="slide2" class="slider-control">2</label>
+        <label for="slide3" class="slider-control">3</label>
+        <label for="slide4" class="slider-control">4</label>
+      </div>
 
       <ul class="slider-nested">
         <li class="slider-item"><img src="image1.jpg" alt="food-1" /></li>
